@@ -1,6 +1,5 @@
-import React, { createContext, useContext, useMemo, useCallback } from 'react';
-import useLocalStorage from 'hooks/useLocalStorage';
-import { ThemeContextProps, ThemeLayoutValue } from 'types/theme';
+import React, { createContext, useContext, useMemo, useCallback, useState } from 'react';
+import { ThemeContextProps, ThemeLayoutValue, ThemeValueProps } from 'types/theme';
 import { defaultSettings } from './config-settings';
 
 const initialState: ThemeContextProps = {
@@ -24,7 +23,7 @@ type ThemeProviderProps = {
 };
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [settings, setSettings] = useLocalStorage('chat-ai-board-config', defaultSettings);
+  const [settings, setSettings] = useState<ThemeValueProps>(defaultSettings);
 
   const onToggleLayout = useCallback(() => {
     const themeLayout = settings.themeLayout === 'vertical' ? 'mini' : 'vertical';

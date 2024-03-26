@@ -1,7 +1,9 @@
 import IndexPage from 'pages/index.tsx';
+import MainLayout from 'layouts/MainLayout.tsx';
 
 const MainRoutes = {
   path: '/',
+  element: <MainLayout />,
   children: [
     {
       path: '',
