@@ -18,8 +18,17 @@ export default defineConfig((configEnv) => {
     resolve: {
       alias: {
         assets: resolve(__dirname, 'src', 'assets'),
+        layouts: resolve(__dirname, 'src', 'layouts'),
+        routes: resolve(__dirname, 'src', 'routes'),
         components: resolve(__dirname, 'src', 'components'),
+        pages: resolve(__dirname, 'src', 'pages'),
+        sections: resolve(__dirname, 'src', 'sections'),
+        constants: resolve(__dirname, 'src', 'constants'),
+        libs: resolve(__dirname, 'src', 'libs'),
         hooks: resolve(__dirname, 'src', 'hooks'),
+        utils: resolve(__dirname, 'src', 'utils'),
+        theme: resolve(__dirname, 'src', 'theme'),
+        types: resolve(__dirname, 'src', 'types'),
       },
     },
     css: {

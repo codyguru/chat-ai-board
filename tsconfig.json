@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "es5",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "lib": ["esnext", "dom", "dom.iterable"],
+    "module": "esnext",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -28,8 +28,17 @@
     "baseUrl": ".",
     "paths": {
       "assets/*": ["src/assets/*"],
+      "layouts/*": ["src/layouts/*"],
+      "routes/*": ["src/routes/*"],
       "components/*": ["src/components/*"],
-      "hooks/*": ["src/hooks/*"]
+      "pages/*": ["src/pages/*"],
+      "sections/*": ["src/sections/*"],
+      "constants/*": ["src/constants/*"],
+      "libs/*": ["src/libs/*"],
+      "hooks/*": ["src/hooks/*"],
+      "utils/*": ["src/utils/*"],
+      "theme/*": ["src/theme/*"],
+      "types/*": ["src/types/*"]
     }
   },
   "include": ["src"],

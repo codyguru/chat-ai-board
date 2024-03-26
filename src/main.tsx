@@ -1,12 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'assets/styles/tailwind.scss';
-import App from './app.tsx';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import { ThemeProvider } from 'theme/ThemeContext';
+
+import 'assets/styles/tailwind.scss';
+import App from './app';
+
+const container = document.getElementById('root');
+const root = createRoot(container!);
+
+root.render(
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <ThemeProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ThemeProvider>
 );

@@ -35,6 +35,13 @@ module.exports = {
         secondary: '8px',
         regular: '50%',
       },
+      boxShadow: (theme) => ({
+        primary: `0px 1px 1px rgb(0 0 0 / 14%), 0px 2px 1px rgb(0 0 0 / 12%), 0px 1px 3px rgb(0 0 0 / 20%)`,
+        secondary: `0px 1px 4px rgba(255, 255, 255, 0.08)`,
+      }),
+      backgroundImage: {
+        'base-gradient': 'linear-gradient(to bottom, #00B8D9, #1939B7)',
+      },
     },
   },
   plugins: [
