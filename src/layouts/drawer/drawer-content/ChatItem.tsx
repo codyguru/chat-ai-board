@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Tooltip } from '@material-tailwind/react';
 import { useThemeContext } from 'theme/ThemeContext.tsx';
 import useResponsive from 'hooks/useResponsive.ts';
 import { IChat } from 'types/chats.ts';
@@ -33,14 +34,32 @@ const ChatItem: React.FC<IChatItemProps> = ({ title, link = '/' }) => {
       }`}
       onClick={handleClick}
     >
-      <span
-        className="overflow-hidden overflow-ellipsis whitespace-nowrap"
-        style={{
-          width: active ? `${NAV.W_DASHBOARD - 82}px` : `${NAV.W_DASHBOARD - 54}px`,
-        }}
-      >
-        {title}
-      </span>
+      {downMD ? (
+        <span
+          className="overflow-hidden overflow-ellipsis whitespace-nowrap"
+          style={{
+            width: active ? `${NAV.W_DASHBOARD - 82}px` : `${NAV.W_DASHBOARD - 54}px`,
+          }}
+        >
+          {title}
+        </span>
+      ) : (
+        <Tooltip
+          content={title}
+          placement="right"
+          offset={active ? 58 : 32}
+          className="bg-grey-300/30 p-3 rounded-primary"
+        >
+          <span
+            className="overflow-hidden overflow-ellipsis whitespace-nowrap"
+            style={{
+              width: active ? `${NAV.W_DASHBOARD - 82}px` : `${NAV.W_DASHBOARD - 54}px`,
+            }}
+          >
+            {title}
+          </span>
+        </Tooltip>
+      )}
       {active && (
         <div role="button">
           <EllipsisHorizontalIcon className="h-5 w-5 text-primary font-bold" />
