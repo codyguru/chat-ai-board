@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import Header from 'layouts/header';
-import Footer from 'layouts/footer';
 import Drawer from 'layouts/drawer';
-import { HEADER, FOOTER } from 'constants/config.ts';
+import { HEADER } from 'constants/config.ts';
 import useResponsive from 'hooks/useResponsive.ts';
 import { useThemeContext } from 'theme/ThemeContext.tsx';
 
@@ -28,12 +27,11 @@ const MainLayout: React.FC = () => {
       <div className="flex flex-col w-full flex-grow bg-grey-900">
         <Header />
         <main
-          className="container mx-auto relative flex flex-col overflow-auto  h-full"
-          style={{ maxHeight: `calc(100vh - ${HEADER.H_MAIN_DESKTOP + FOOTER.H_MAIN_DESKTOP}px)` }}
+          className="relative flex flex-col overflow-auto  h-full"
+          style={{ maxHeight: `calc(100vh - ${HEADER.H_MAIN_DESKTOP}px)` }}
         >
           <Outlet />
         </main>
-        <Footer />
       </div>
     </div>
   );
