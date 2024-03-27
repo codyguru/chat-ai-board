@@ -31,8 +31,8 @@ module.exports = {
       },
       divideColor: `rgba(255, 255, 255, 0.1)`,
       borderRadius: {
-        primary: '4px',
-        secondary: '8px',
+        primary: '8px',
+        secondary: '16px',
         regular: '50%',
       },
       boxShadow: (theme) => ({

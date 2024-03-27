@@ -22,7 +22,7 @@ const MainLayout: React.FC = () => {
   }, [downMD]);
 
   return (
-    <div className="flex flex-row w-full h-screen">
+    <div className="relative flex flex-row w-full h-screen">
       <Drawer />
 
       <div className="flex flex-col w-full flex-grow bg-grey-900">
