@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Divider from 'components/Divider.tsx';
 import { HEADER, FOOTER } from 'constants/config.ts';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
 import ChatsGroup from './ChatsGroup.tsx';
 import { IChatsGroup } from 'types/chats.ts';
+import { useThemeContext } from 'theme/ThemeContext.tsx';
+import useResponsive from 'hooks/useResponsive.ts';
 
 // Todo: Should be fetched for chats history
 const CHAT_HISTORY: IChatsGroup[] = [
@@ -42,18 +44,33 @@ const CHAT_HISTORY: IChatsGroup[] = [
 
 const DrawerContent: React.FC = () => {
   const navigate = useNavigate();
+  const { themeLayout, onToggleLayout } = useThemeContext();
+  const downMD = useResponsive('down', 'md');
+
+  const handleClick = useCallback(
+    () => {
+      navigate('/');
+      if (downMD && themeLayout === 'vertical') onToggleLayout();
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [themeLayout, downMD]
+  );
 
   return (
     <div
       className="w-full flex flex-col p-4 overflow-y-auto"
       style={{
-        minHeight: `calc(100vh - ${HEADER.H_MAIN_DESKTOP + FOOTER.H_MAIN_DESKTOP}px)`,
+        minHeight: `calc(100vh - ${
+          downMD && themeLayout === 'vertical'
+            ? HEADER.H_MAIN_DESKTOP
+            : HEADER.H_MAIN_DESKTOP + FOOTER.H_MAIN_DESKTOP
+        }px)`,
       }}
     >
       <div
         role="button"
         className="bg-base-gradient rounded-full w-full flex items-center justify-center gap-2 p-3"
-        onClick={() => navigate('/')}
+        onClick={handleClick}
       >
         <ChatBubbleLeftIcon className="h-5 w-5 text-primary font-bold" />
         <span className="text-primary text-sm font-bold">New Chat</span>

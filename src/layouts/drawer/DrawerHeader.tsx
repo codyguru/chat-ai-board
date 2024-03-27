@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HEADER } from 'constants/config.ts';
+import { HEADER, NAV } from 'constants/config.ts';
 import { Logo } from 'components/logo';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
@@ -32,7 +32,10 @@ const DrawerHeader: React.FC<IDrawerHeaderProps> = ({ search, onSearch }) => {
         {isSearch && (
           <input
             type="text"
-            className="w-full bg-grey-800 border-2 border-grey-700 rounded-full focus:outline-none text-primary text-sm pl-3 pr-9 py-2"
+            className="bg-grey-800 border-2 border-grey-700 rounded-full focus:outline-none text-primary text-sm pl-3 pr-9 py-2"
+            style={{
+              width: `${NAV.W_DASHBOARD - 32}px`,
+            }}
             value={search}
             onChange={(e) => onSearch(e.target.value)}
           />
