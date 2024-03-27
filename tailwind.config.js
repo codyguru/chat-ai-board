@@ -11,6 +11,7 @@ module.exports = {
         current: 'currentColor',
         white: '#fff',
         black: '#000',
+        divider: `rgba(255, 255, 255, 0.1)`,
         grey: {
           0: '#ffffff',
           50: '#fafafa',
@@ -29,7 +30,6 @@ module.exports = {
         primary: `rgba(255, 255, 255, 0.87)`,
         secondary: `rgba(255, 255, 255, 0.45)`,
       },
-      divideColor: `rgba(255, 255, 255, 0.1)`,
       borderRadius: {
         primary: '8px',
         secondary: '16px',

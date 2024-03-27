@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useThemeContext } from 'theme/ThemeContext.tsx';
 import useResponsive from 'hooks/useResponsive.ts';
-import { HEADER, NAV } from 'constants/config.ts';
+import { NAV } from 'constants/config.ts';
 import MobileDrawer from './MobileDrawer.tsx';
+import DrawerHeader from './DrawerHeader.tsx';
+import DrawerContent from './drawer-content/DrawerContent.tsx';
+import DrawerFooter from './DrawerFooter.tsx';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 
 const Drawer: React.FC = () => {
   const { themeLayout, onToggleLayout } = useThemeContext();
   const downMD = useResponsive('down', 'md');
+  const [search, setSearch] = useState<string>('');
+
+  const handleSearchQuery = useCallback(
+    (query: string) => {
+      setSearch(query);
+      // Todo: Send request with query
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [search]
+  );
 
   return (
     <>
@@ -36,7 +49,9 @@ const Drawer: React.FC = () => {
           className="flex flex-col"
           style={{ ...(themeLayout == 'mini' && { display: 'none' }) }}
         >
-          Drawer
+          <DrawerHeader search={search} onSearch={handleSearchQuery} />
+          <DrawerContent />
+          <DrawerFooter />
         </div>
       </div>
 
