@@ -23,6 +23,7 @@
   "rules": {
     "@typescript-eslint/ban-ts-comment": "warn",
     "comma-dangle": "off",
+    "prefer-const": "warn",
     "multiline-ternary": "off",
     "no-use-before-define": "off",
     "space-before-function-paren": "off",
