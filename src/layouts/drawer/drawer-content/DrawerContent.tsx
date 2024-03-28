@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Divider from 'components/Divider.tsx';
 import { HEADER, FOOTER } from 'constants/config.ts';
 import { ChatBubbleLeftIcon } from '@heroicons/react/24/outline';
@@ -43,6 +43,7 @@ const CHAT_HISTORY: IChatsGroup[] = [
 ];
 
 const DrawerContent: React.FC = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const { themeLayout, onToggleLayout } = useThemeContext();
   const downMD = useResponsive('down', 'md');
@@ -50,6 +51,7 @@ const DrawerContent: React.FC = () => {
   const handleClick = useCallback(
     () => {
       navigate('/');
+      if (location.pathname == '/') navigate(0);
       if (downMD && themeLayout === 'vertical') onToggleLayout();
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { FOOTER, HEADER } from 'constants/config.ts';
 import { useGetAnswersMutation } from 'libs/mutations/useGetAnswersMutation.ts';
@@ -8,8 +9,13 @@ import { IChatHistory } from 'types/chats.ts';
 
 const IndexPage: React.FC = () => {
   const chatBoxRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
   const [chatHistory, setChatHistory] = useState<IChatHistory[]>([]);
   const { mutateAsync: getAnswers } = useGetAnswersMutation();
+
+  useEffect(() => {
+    setChatHistory([]);
+  }, [location.pathname]);
 
   useEffect(() => {
     const element = chatBoxRef.current;
