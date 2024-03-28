@@ -1,4 +1,5 @@
 import React from 'react';
+import 'mocks/index.ts';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import ScrollTop from 'components/ScrollTop.tsx';
 import Routes from 'routes/index.ts';

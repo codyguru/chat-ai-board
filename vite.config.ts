@@ -25,6 +25,7 @@ export default defineConfig((configEnv) => {
         sections: resolve(__dirname, 'src', 'sections'),
         constants: resolve(__dirname, 'src', 'constants'),
         libs: resolve(__dirname, 'src', 'libs'),
+        mocks: resolve(__dirname, 'src', 'mocks'),
         hooks: resolve(__dirname, 'src', 'hooks'),
         utils: resolve(__dirname, 'src', 'utils'),
         theme: resolve(__dirname, 'src', 'theme'),

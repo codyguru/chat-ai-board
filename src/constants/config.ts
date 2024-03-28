@@ -1,3 +1,6 @@
+export const HOST_API_ROUTE = 'http://localhost';
+export const HOST_API_PORT = 8000;
+
 export const HEADER = {
   H_MAIN_DESKTOP: 78,
 };

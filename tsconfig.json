@@ -35,6 +35,7 @@
       "sections/*": ["src/sections/*"],
       "constants/*": ["src/constants/*"],
       "libs/*": ["src/libs/*"],
+      "mocks/*": ["src/mocks/*"],
       "hooks/*": ["src/hooks/*"],
       "utils/*": ["src/utils/*"],
       "theme/*": ["src/theme/*"],
